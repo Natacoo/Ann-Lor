@@ -1,4 +1,4 @@
-package pathfinder;
+package controller.pathfinder;
 
 public class PathFinder {
 

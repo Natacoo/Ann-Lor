@@ -1,4 +1,4 @@
-package pathfinder;
+package controller.pathfinder;
 
 import static org.junit.Assert.*;
 
