@@ -23,7 +23,7 @@ public class Map implements IMap{
 	}
 	
 	public IElement[][] getElements(){
-		return elements;
+		return (IElement[][]) elements;
 	}
 	
 	public IElement getElement(int x, int y){
@@ -32,7 +32,7 @@ public class Map implements IMap{
 		if(x>=elements.length) return null;
 		if(y>=elements[0].length) return null;
 		
-		return elements[x][y];
+		return (IElement) elements[x][y];
 	}
 	
 	public ArrayList<IEntitie> getEntities(){
