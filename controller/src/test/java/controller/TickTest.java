@@ -1,6 +1,7 @@
 package controller;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -27,8 +28,16 @@ public class TickTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public final void testTick() {
+		Controller i = null;
+		assertNotNull(new Tick(i));
+	}
+
+	@Test
+	public final void testRun() {
+		Controller i = null;
+		Tick t = new Tick(i);
+		t.run();
 	}
 
 }

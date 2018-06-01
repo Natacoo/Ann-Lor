@@ -9,7 +9,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PathFinderTest {
-
+	int[][] dataInt = {{0, 0, 0, 0}, {0, 1, 1, 1}, {1, 0, 0, 1}};
+	Node start = new Node(0, 0);
+	Node end = new Node(2, 2);
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -27,8 +30,26 @@ public class PathFinderTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public final void testPathFinder() {
+		assertNotNull(new PathFinder(dataInt));
+	}
+
+	@Test
+	public final void testIsWalk() {
+		PathFinder pF = new PathFinder(dataInt);
+		assertNotNull(pF.isWalk(end));
+	}
+
+	@Test
+	public final void testFindPath() {
+		PathFinder pF = new PathFinder(dataInt);
+		pF.findPath(start, end);
+	}
+
+	@Test
+	public final void testGetPath() {
+		PathFinder pF = new PathFinder(dataInt);
+		pF.findPath(start, end);
 	}
 
 }
