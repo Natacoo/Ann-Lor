@@ -32,6 +32,24 @@ public class Panel extends JPanel implements Observer{
 				}
 			}
 		}
+		
+		switch(view.getModel().getState()) {
+			case MENU : 
+					view.getModel().getMenu(g);
+				break;
+			case GAMEOVER : 
+					view.getModel().setGameOver(g);
+				break;
+			case MAP : 
+					for (IParticule p : view.getModel().getMap().getParticule()) {
+						p.draw(g);
+					}
+					view.getModel().getMap().getHero().draw(g);
+					g.setFont(new Font(Font.DIALOG, Font.ITALIC, 25));
+					GraphUtil.StringWithBorder(g, "Score : "+view.getModel().getMap().getScore(), 40, 40, Color.yellow);
+				break;
+		}
+	}
 	
 	public void clearComponant (Graphics g) {
 		g.setColor(Color.BLACK);
@@ -42,5 +60,4 @@ public class Panel extends JPanel implements Observer{
 		repaint();
 	}
 	
-	}
 }
