@@ -6,7 +6,7 @@ import contract.IDoor;
 
 public class Door extends Element {
 	private boolean state;
-	private Image[] sprites; 
+	private Image[] sprites;  
 	
 	public Door(Image image, int x, int y, Image[] sprites) {
 		super(image, x, y);
