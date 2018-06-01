@@ -7,7 +7,7 @@ import contract.*;
 public class Hero extends Entitie implements IHero{
 	private boolean stateSpell;
 	private Image[] sprite;
-	private StateHero stateHero;
+	private StateHero stateHero; 
 	
 	public Hero(Image image) {
 		super(image);

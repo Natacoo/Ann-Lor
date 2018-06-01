@@ -11,7 +11,7 @@ import contract.ISound;
 public class Sound extends Thread implements ISound {
 	private File sound;
 	private boolean loop;
-	private Clip clip;
+	private Clip clip; 
 
 	public void load(String path) {
 

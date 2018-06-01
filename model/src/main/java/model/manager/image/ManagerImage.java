@@ -28,7 +28,7 @@ public class ManagerImage {
 		initEntitie();
 		initParticule();
 		initRessource();
-	}
+	} 
 	
 	private void initRessource(){
 		

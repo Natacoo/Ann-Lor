@@ -30,7 +30,7 @@ public class Game extends Observable implements IModel {
 	private ManagerImage managerImage;
 	private BDD bdd;
 	private StateGame State;
-	private Image[] spell;
+	private Image[] spell; 
 	private Image background;
 	private int coordinateXBackground, coordinateYBackground, directionBackground;
 	private Sound sound, effect;

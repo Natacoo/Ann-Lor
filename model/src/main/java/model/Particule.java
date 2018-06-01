@@ -10,7 +10,7 @@ public class Particule implements IParticule{
 	private int direction;
 	private Image[] image;
 	private int index;
-	private int x, y;
+	private int x, y; 
 	
 	public Particule(int life, int direction, Image[] image, int x, int y){
 		this.x = x;

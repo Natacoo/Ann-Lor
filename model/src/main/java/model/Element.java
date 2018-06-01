@@ -7,7 +7,7 @@ import contract.IElement;
 import contract.TypeElement;
 
 public class Element {
-	private Image image;
+	private Image image; 
 	private int x, y;
 	private boolean permeability;
 	private TypeElement typeElement;

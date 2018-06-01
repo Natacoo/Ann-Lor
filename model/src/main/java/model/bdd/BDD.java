@@ -17,7 +17,7 @@ public class BDD {
 	
 	public ResultSet query(String sql, int id){
 
-	}
+	} 
 
 	public ResultSet query(String sql){
 

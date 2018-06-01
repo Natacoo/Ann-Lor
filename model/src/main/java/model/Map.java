@@ -10,7 +10,7 @@ public class Map implements IMap{
 	private ArrayList<IParticule> particules;
 	private int score;
 	
-	private IEntitie hero;
+	private IEntitie hero; 
 	
 	public Map(){
 		entities = new ArrayList<IEntitie>();

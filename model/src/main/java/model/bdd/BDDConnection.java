@@ -18,7 +18,7 @@ public class BDDConnection {
 	}
 	
 	private boolean open(){
-
+ 
 	}
 
 	public boolean close(){

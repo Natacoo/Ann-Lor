@@ -10,7 +10,7 @@ public class Entitie implements IEntitie {
 	private int x, y;
 	private TypeEntitie typeEntitie;
 	protected Image image;	
-	private int speed;
+	private int speed; 
 	protected int bonus;
 	
 	public Entitie(Image image){

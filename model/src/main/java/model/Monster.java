@@ -8,7 +8,7 @@ public class Monster extends Entitie {
 	}
 	
 	public int getBonus() {
-		return bonus;
+		return bonus; 
 	}
 	
 	
