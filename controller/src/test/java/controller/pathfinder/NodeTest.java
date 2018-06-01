@@ -27,8 +27,37 @@ public class NodeTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public final void testNodeNode() {
+		assertNotNull(new Node(new Node(1, 1)));
+	}
+
+	@Test
+	public final void testNodeIntInt() {
+		assertNotNull(new Node(1, 1));
+	}
+
+	@Test
+	public final void testGetX() {
+		Node n = new Node(1, 1);
+		assertEquals(1, n.getX());
+	}
+
+	@Test
+	public final void testGetY() {
+		Node n = new Node(1, 1);
+		assertEquals(1, n.getY());
+	}
+
+	@Test
+	public final void testSetX() {
+		Node n = new Node(1, 1);
+		n.setX(0);
+	}
+
+	@Test
+	public final void testSetx() {
+		Node n = new Node(1, 1);
+		n.setY(0);
 	}
 
 }
