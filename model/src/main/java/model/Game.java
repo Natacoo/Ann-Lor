@@ -124,5 +124,11 @@ public class Game extends Observable implements IModel {
 	public void playEffect(String name){
 
 	}
+
+	@Override
+	public void loadMap(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
