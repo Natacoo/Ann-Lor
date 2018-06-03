@@ -31,19 +31,67 @@ public class ManagerImage {
 	} 
 	
 	private void initRessource(){
+		ressources = new HashMap<String, InputStream>();
+		sound = new HashMap<String, String>();
+		try{
+			ResultSet result = bdd.query("{call selectRessourceAll()}");
+			while(result.next()){
+				if(result.getString("type").equals("IMG")){
+					ressources.put(result.getString("name"), this.getClass().getResourceAsStream(path+result.getString("url")));
+				}else{
+					sound.put(result.getString("name"), result.getString("url"));
+				}
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
 		
 	}
 	
 	private void initParticule() {
+		imagesParticules = new HashMap<String, Image>();
+		try {
+			ResultSet result = bdd.query("{call selectParticuleAll()}");
+			while(result.next()){
+				imagesParticules.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
 	private void initElement() {
+		imagesElements = new HashMap<Integer, Image>();
+		try {
+			ResultSet result = bdd.query("{call selectElementAll()}");
+			while(result.next()){
+				imagesElements.put(result.getInt("id"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
 	private void initEntitie() {
-		
+		imagesEntities = new HashMap<String, Image>();
+		try {
+			ResultSet result = bdd.query("{call selectEntitiesAll()}");
+			while(result.next()){
+				imagesEntities.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 	
 	public HashMap<Integer, Image> getImagesElements(){
