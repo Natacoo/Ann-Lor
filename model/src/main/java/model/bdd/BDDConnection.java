@@ -18,11 +18,29 @@ public class BDDConnection {
 	}
 	
 	private boolean open(){
- 
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
+		} catch(SQLException e){
+			e.printStackTrace();
+			return false;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
 	}
 
 	public boolean close(){
-
+		try{
+			connection.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+		
 	}
 
 	public Connection getConnection(){
