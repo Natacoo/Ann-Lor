@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class BDDConnection {
-	private static String URL = "jdbc:mysql://localhost/wbuiyx_lorann?autoReconnect=true&useSSL=false";
-	private static String LOGIN = "User";
-	private static String PASSWORD = "";
+	private static String URL = "jdbc:mysql://localhost/lorann?autoReconnect=true&useSSL=false";
+	private static String LOGIN = "root";
+	private static String PASSWORD = "root";
 	private Connection connection;
 	
 	public BDDConnection(){
