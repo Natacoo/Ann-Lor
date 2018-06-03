@@ -10,10 +10,17 @@ public class Tick implements Runnable{
 		}
 	
 	public void run() {
-		
-	}
+		while(true && controller != null)
+		{
+			try
+			{
+				Thread.sleep(100);
+				clock++;
+				controller.update(clock);
+			}catch(Exception e){e.printStackTrace();}
+		}
 	
-		
+	}
 		
 		
 }
