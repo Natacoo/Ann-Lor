@@ -55,11 +55,13 @@ public class Element {
 	}
 	
 	public void draw(Graphics g){
-		
+		g.drawImage(image, x*32, y*32, null);
+
 	}
 	
 	public void setPosition(int x, int y){
-		
+		this.x = x;
+		this.y = y;
 	}
 	
 }

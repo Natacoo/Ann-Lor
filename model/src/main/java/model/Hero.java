@@ -48,9 +48,4 @@ public class Hero extends Entitie implements IHero{
 		return stateHero;
 	}
 	
-	
-	
-	
-	
-	
 }

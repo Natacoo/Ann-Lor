@@ -22,29 +22,51 @@ public class Particule implements IParticule{
 	}
 	
 	public void move(){
-
+		life--;
+		index = (int)(Math.random()*5);
+		switch(direction){
+			case 1 :
+				y--;
+				break;
+			case 2 :
+				y++;
+				break;
+			case 3 :
+				x--;
+				break;
+			case 4 :
+				x++;
+				break;
+		}
+		if(life == 0){
+			direction = 0;
+		}
+		
 	}
 	
 	public void draw(Graphics g){
-		
+		g.drawImage(image[index], x*32, y*32, null);
+
 	}
 	
 	public boolean isLife(){
 		return life == 0;
+		
 	}
 	
 	public void setDirection(int d){
 		direction = d;
+		
 	}
 	
-	public int getX()
-	{
+	public int getX(){
 		return x;
+		
 	}
 	
-	public int getY()
-	{
+	public int getY(){
 		return y;
+		
 	}
 	
 }

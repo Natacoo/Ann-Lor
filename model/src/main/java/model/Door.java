@@ -19,6 +19,7 @@ public class Door extends Element {
 	}
 	
 	public void setOpen() {
-		
+		state = true;
+		setImage(sprites[1]);	
 	}
 }

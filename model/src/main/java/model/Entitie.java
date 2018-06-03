@@ -17,23 +17,28 @@ public class Entitie implements IEntitie {
 		this.image = image;
 		this.speed = 5;
 		this.bonus = 500;
+		
 	}
 	
 	public void setPosition(int x, int y){
 		this.x = x;
 		this.y = y;
+		
 	}
 	
 	public int getX(){
 		return x;
+		
 	}
 	
 	public int getY(){
 		return y;
+		
 	}
 	
 	public TypeEntitie getTypeEntitie(){
 		return typeEntitie;
+		
 	}
 	
 	public void update(){
@@ -41,23 +46,28 @@ public class Entitie implements IEntitie {
 	}
 	
 	public void draw(Graphics g){
+		g.drawImage(image, x*32, y*32, null);
 
 	}
 	
 	public void setTytpeEntitie(TypeEntitie t){
 		typeEntitie = t;
+		
 	}
 	
 	public boolean isMove(long i){
+		return (i % (long)speed) == 0;
 
 	}
 	
 	public int getBonus() {
 		return bonus;
+		
 	}
 	
 	public void setSpeed(int speed){
 		this.speed = speed;
+		
 	}
 	
 }

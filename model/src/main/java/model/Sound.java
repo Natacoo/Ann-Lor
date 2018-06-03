@@ -14,11 +14,23 @@ public class Sound extends Thread implements ISound {
 	private Clip clip; 
 
 	public void load(String path) {
-
+		try{
+			sound = new File(path);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		loop = false;
 	}
 
 	public void run() {
-
+		do{
+			try{
+				AudioInputStream audioIn = AudioSystem.getAudioInputStream(sound);
+				clip = AudioSystem.getClip();
+				clip.open(audioIn);
+				clip.start();
+			}catch(Exception ex){ex.printStackTrace();}
+		}while(loop);
 	}
 
 	public void stopMusic() {
