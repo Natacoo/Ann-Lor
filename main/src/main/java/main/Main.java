@@ -1,24 +1,19 @@
 package main;
 
+import contract.*;
+import controller.Controller;
+import model.Game;
+import view.View;
 
+public class Main 
+{
 
-/**
- * <h1>The Class Main.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
-public abstract class Main {
-
-    /**
-     * The main method.
-     *
-     * @param args
-     *            the arguments
-     */
-    public static void main(final String[] args) {
-
-
+    public static void main( String[] args )
+    {
+    	IModel game = new Game();
+    	IView view = new View(game, "Lorann");
+    	IController controller = new Controller(view, game);
+    	view.setController(controller);
+    	controller.startTick();
     }
-
 }
