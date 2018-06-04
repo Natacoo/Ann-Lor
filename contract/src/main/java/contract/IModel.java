@@ -43,8 +43,8 @@ public interface IModel {
 
 	public void loadMap(int id);
 
-	public void playMusic(String name, boolean loop);
+//	public void playMusic(String name, boolean loop);
 
-	public void playEffect(String name);
+//	public void playEffect(String name);
 
 }

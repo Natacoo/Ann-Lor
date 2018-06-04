@@ -28,7 +28,7 @@ public class Controller implements IController{
 		this.view = view;
 		this.model = model;
 		t = new Thread(new Tick(this));
-		model.playMusic("menu", true);
+//		model.playMusic("menu", true);
 	}
 	
 	public void initPathFinder() {
@@ -64,7 +64,7 @@ public class Controller implements IController{
 						IEntitie ie = getEntitie(p.getX(), p.getY());
 						if(ie != null){
 							if(ie.getTypeEntitie() == TypeEntitie.MONSTER){
-								model.playEffect("dead_monster");
+//								model.playEffect("dead_monster");
 								model.getMap().setScore(model.getMap().getScore()+ie.getBonus());
 								model.getMap().getEntities().remove(ie);
 								model.getMap().getParticule().remove(p);
@@ -90,7 +90,7 @@ public class Controller implements IController{
 							{
 								e.setPosition(n.getX(), n.getY());
 								if (e.getX()==model.getMap().getHero().getX() && e.getY()==model.getMap().getHero().getY()) {
-									model.playMusic("game_over", true);
+//									model.playMusic("game_over", true);
 									model.setState(StateGame.GAMEOVER);
 								}
 								count++;
@@ -325,7 +325,7 @@ public class Controller implements IController{
 	private void checkMonster(int x, int y) {
 		IEntitie ie = getEntitie(x, y);
 		if(ie != null){
-			model.playMusic("game_over", true);
+//			model.playMusic("game_over", true);
 			model.setState(StateGame.GAMEOVER);
 		}
 	}
@@ -338,7 +338,7 @@ public class Controller implements IController{
 				for(IElement[] ie : model.getMap().getElements()){
 					for(IElement ee : ie){
 						if(ee instanceof IDoor){
-							model.playEffect("key");
+//							model.playEffect("key");
 							((IDoor)ee).setOpen();
 						}
 					}
@@ -362,7 +362,7 @@ public class Controller implements IController{
 		IElement door = getElement(x, y);
 		if(door instanceof IDoor){
 			if(!((IDoor) door).isState()){
-				model.playMusic("game_over", true);
+//				model.playMusic("game_over", true);
 				model.setState(StateGame.GAMEOVER);
 				model.changed();
 			}else {
@@ -370,7 +370,7 @@ public class Controller implements IController{
 					model.setLevel(model.getLevel()+1);
 					initPathFinder();
 				}else {
-					model.playMusic("game_over", true);
+//					model.playMusic("game_over", true);
 					model.setState(StateGame.GAMEOVER);
 				}
 			}
@@ -380,7 +380,7 @@ public class Controller implements IController{
 	public void action(int action){
 		if(model.getState() == StateGame.GAMEOVER){
 			if(action == 7){
-				model.playMusic("menu", true);
+//				model.playMusic("menu", true);
 				model.setState(StateGame.MENU);
 				model.loadMap(model.getLevel()+1);
 				model.changed();
@@ -388,12 +388,12 @@ public class Controller implements IController{
 			}
 		}else if(model.getState() == StateGame.MENU){
 			if(action == 7){
-				model.playMusic("introduction", true);
+//				model.playMusic("intro", true);
 				initPathFinder();
 				try {
 					Thread.sleep(4000);
 				} catch (InterruptedException e) {}
-				model.playMusic("ingame", true);
+//				model.playMusic("ingame", true);
 				model.setState(StateGame.MAP);
 				model.changed();
 				return;
@@ -403,7 +403,7 @@ public class Controller implements IController{
 			}
 		}else if(model.getState() == StateGame.MAP){
 			if(action == 6 && ((IHero)model.getMap().getHero()).isStateSpell()){
-				model.playEffect("spell");
+//				model.playEffect("spell");
 				model.addParticule(5, ((IHero) model.getMap().getHero()).getState(), model.getMap().getHero());
 				IParticule ip = model.getMap().getParticule().get(model.getMap().getParticule().size()-1);
 				ip.move();
@@ -411,7 +411,7 @@ public class Controller implements IController{
 				((IHero)model.getMap().getHero()).setStateSpell(false);
 				if(ie != null){
 					if(ie.getTypeEntitie() == TypeEntitie.MONSTER){
-						model.playEffect("dead_monster");
+//						model.playEffect("dead_monster");
 						model.getMap().setScore(model.getMap().getScore()+ie.getBonus());
 						model.getMap().getEntities().remove(ie);
 						model.getMap().getParticule().remove(ip);

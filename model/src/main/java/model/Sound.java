@@ -8,6 +8,12 @@ import javax.sound.sampled.Clip;
 
 import contract.ISound;
 
+/**
+@author Tristan FOCA
+@version 06/04/2018
+*/
+
+
 public class Sound extends Thread implements ISound {
 	private File sound;
 	private boolean loop;

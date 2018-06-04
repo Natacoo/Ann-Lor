@@ -4,6 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+@author Tristan FOCA
+@version 06/04/2018
+*/
+
 public class BDDConnection {
 	private static String URL = "jdbc:mysql://localhost/lorann?autoReconnect=true&useSSL=false";
 	private static String LOGIN = "User";

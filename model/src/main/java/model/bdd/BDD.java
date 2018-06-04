@@ -4,14 +4,32 @@ import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BDD {
-	private BDDConnection bddConnection;
+/**
+ Class to execute SQL queries 
 
+
+@author Tristan FOCA
+@version 06/04/2018
+*/
+
+public class BDD {
+	
+	private BDDConnection bddConnection;
+	
+	/**
+	 Initialize an object for connection to database
+	 */
 	public BDD(){
 		bddConnection = new BDDConnection();
-		
 	}
 	
+	/**
+	 Execute the SQL queries
+	 
+	 @param sql It's SQL query
+	 @param i It's a table for params of SQL query 
+	 @return The result of query
+	 */
 	public ResultSet query(String sql, int[] i){
 		try{
 			CallableStatement call = bddConnection.getConnection().prepareCall(sql);
@@ -24,9 +42,15 @@ public class BDD {
 			e.printStackTrace();
 		}
 		return null;
-		
 	}
 	
+	/**
+	 Execute the SQL queries
+	 
+	 @param sql It's SQL query
+	 @param id It's a number for param of SQL query
+	 @return The result of query
+	 */
 	public ResultSet query(String sql, int id){
 		try{
 			CallableStatement call = bddConnection.getConnection().prepareCall(sql);
@@ -37,9 +61,13 @@ public class BDD {
 			e.printStackTrace();
 			return null;
 		}
-		
-	} 
-
+	}
+	/**
+	 Execute the SQL queries
+	 
+	 @param sql It's SQL query
+	 @return The result of query
+	 */
 	public ResultSet query(String sql){
 		try{
 			CallableStatement call = bddConnection.getConnection().prepareCall(sql);
@@ -49,9 +77,14 @@ public class BDD {
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
-
+	/**
+	 Execute the SQL queries
+	 
+	 @param sql It's SQL query
+	 @param params It's a table for params in SQL query
+	 @return The result of query
+	 */
 	public ResultSet query(String sql, String[] params){
 		try{
 			CallableStatement call = bddConnection.getConnection().prepareCall(sql);
@@ -64,9 +97,15 @@ public class BDD {
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
-
+	/**
+	 Execute the SQL queries
+	 
+	 @param sql It's SQL query
+	 @param param It's a param in SQL query
+	 @return The result of query
+	 */
+	
 	public ResultSet query(String sql, String param){
 		try{
 			CallableStatement call = bddConnection.getConnection().prepareCall(sql);
@@ -77,7 +116,5 @@ public class BDD {
 			e.printStackTrace();
 			return null;
 		}
-		
 	}
-
 }

@@ -1,4 +1,4 @@
-package model.manager.image;
+ package model.manager.image;
 
 import java.awt.Image;
 import java.io.BufferedInputStream;
@@ -11,6 +11,11 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 import model.bdd.BDD;
 
+/**
+@author Tristan FOCA
+@version 06/04/2018
+*/
+
 public class ManagerImage {
 	private HashMap<Integer, Image> imagesElements;
 	private HashMap<String, Image> imagesEntities;
@@ -19,15 +24,18 @@ public class ManagerImage {
 	private HashMap<String, String> sound;
 	
 	private BDD bdd;
-	
+	/**
+	 Initialize the object for ManagerImage
+	 @param bdd It's a connection of database
+	 @param path It's a path
+	 */
 	public ManagerImage(BDD bdd){
 		this.bdd = bdd;
 		initElement();
 		initEntitie();
 		initParticule();
 		initRessource();
-	} 
-	
+	}
 	private void initRessource(){
 		ressources = new HashMap<String, InputStream>();
 		sound = new HashMap<String, String>();
@@ -43,9 +51,10 @@ public class ManagerImage {
 		}catch(SQLException e){
 			e.printStackTrace();
 		}
-		
 	}
-	
+	/**
+	 Initialize images in multiple Particule
+	 */
 	private void initParticule() {
 		imagesParticules = new HashMap<String, Image>();
 		try {
@@ -58,9 +67,10 @@ public class ManagerImage {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
+	/**
+	 Initialize images in multiple Element with connection at database
+	 */
 	private void initElement() {
 		imagesElements = new HashMap<Integer, Image>();
 		try {
@@ -74,9 +84,10 @@ public class ManagerImage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-	
+	/**
+	 Initialize images in multiple Entitie with connection at database
+	 */
 	private void initEntitie() {
 		imagesEntities = new HashMap<String, Image>();
 		try {
@@ -89,27 +100,41 @@ public class ManagerImage {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
 	}
-	
+	/**
+	 Return the images of Elements
+	 @return HashMap It's a table of image with key
+	 */
 	public HashMap<Integer, Image> getImagesElements(){
 		return imagesElements;
 	}
-	
+	/**
+	 Return the images of Entities
+	 @return HashMap It's a table of image with key
+	 */
 	public HashMap<String, Image> getImagesEntities(){
 		return imagesEntities;
 	}
-	
+	/**
+	 Return the images of Particle
+	 @return HashMap It's a table of image with key
+	 */
 	public HashMap<String, Image> getImagesParticules(){
 		return imagesParticules;
 	}
-	
+	/**
+	 * Return all image in project
+	 * @return It's a table of InpuStream with key
+	 */
 	public HashMap<String, InputStream> getRessource(){
 		return ressources;
 	}
-	
+	/**
+	 * Return all sound in project
+	 * @return It's a table of String with key
+	 */
 	public HashMap<String, String> getSound() {
 		return sound;
 	}
-	
 }
