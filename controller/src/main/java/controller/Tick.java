@@ -1,15 +1,27 @@
 package controller;
 
+
+/**
+ @author Hugo GERMAIN
+ @version 06/04/2018
+ */
 public class Tick implements Runnable{
 	private Controller controller;
 	private long clock;
-		
+	
+	/**
+	 Initialize the object of Tick
+	 @param controller It's a controller
+	 */
 	public Tick(Controller controller){
 		this.controller = controller;
 		clock = 0;
-		}
-	
-	public void run() {
+	}
+	/**
+	 @see java.lang.Runnable#run()
+	 */
+	public void run() 
+	{
 		while(true && controller != null)
 		{
 			try
@@ -19,8 +31,6 @@ public class Tick implements Runnable{
 				controller.update(clock);
 			}catch(Exception e){e.printStackTrace();}
 		}
-	
 	}
-		
-		
+	
 }
