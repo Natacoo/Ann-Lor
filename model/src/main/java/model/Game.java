@@ -44,9 +44,9 @@ public class Game extends Observable implements IModel {
 		initMap();
 		Image[] s = {managerImage.getImagesParticules().get("fireball_1"), managerImage.getImagesParticules().get("fireball_2"), managerImage.getImagesParticules().get("fireball_3"), managerImage.getImagesParticules().get("fireball_4"), managerImage.getImagesParticules().get("fireball_5")};
 		spell = s;
-		try {
-			background = ImageIO.read(managerImage.getRessource().get("filtre"));
-		} catch (IOException e) {}
+		//try {
+		//	background = ImageIO.read(managerImage.getRessource().get("filtre"));
+		//} catch (IOException e) {}
 		directionBackground = 7;
 	}
 	

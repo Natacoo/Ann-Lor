@@ -38,7 +38,7 @@ public class Panel extends JPanel implements Observer{
 					view.getModel().getMenu(g);
 				break;
 			case GAMEOVER : 
-					view.getModel().setGameOver(g);
+					view.getModel().getGameOver(g);
 				break;
 			case MAP : 
 					for (IParticule p : view.getModel().getMap().getParticule()) {
