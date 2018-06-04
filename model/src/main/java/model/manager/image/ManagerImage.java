@@ -21,7 +21,7 @@ public class ManagerImage {
 	private HashMap<String, Image> imagesEntities;
 	private HashMap<String, Image> imagesParticules;
 	private HashMap<String, InputStream> ressources;
-	private HashMap<String, String> sound;
+	//private HashMap<String, String> sound;
 	
 	private BDD bdd;
 	/**
@@ -38,15 +38,15 @@ public class ManagerImage {
 	}
 	private void initRessource(){
 		ressources = new HashMap<String, InputStream>();
-		sound = new HashMap<String, String>();
+		//sound = new HashMap<String, String>();
 		try{
 			ResultSet result = bdd.query("{call selectRessourceAll()}");
 			while(result.next()){
 				if(result.getString("type").equals("IMG")){
 					ressources.put(result.getString("name"), this.getClass().getResourceAsStream(result.getString("url")));
-				}else{
-					sound.put(result.getString("name"), result.getString("url"));
-				}
+				}//else{
+					//sound.put(result.getString("name"), result.getString("url"));
+//				}
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -134,7 +134,7 @@ public class ManagerImage {
 	 * Return all sound in project
 	 * @return It's a table of String with key
 	 */
-	public HashMap<String, String> getSound() {
+	/*public HashMap<String, String> getSound() {
 		return sound;
-	}
+	}*/
 }

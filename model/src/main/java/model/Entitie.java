@@ -69,6 +69,7 @@ public class Entitie implements IEntitie{
 	public void draw(Graphics g){
 		g.drawImage(image, x*32, y*32, null);
 	}
+	
 	/**
 	 set the type of an entitie
 	 @param t It's a type of Entitie

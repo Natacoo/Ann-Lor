@@ -17,8 +17,6 @@ import contract.*;
 
 public class Panel extends JPanel implements Observer{
 	
-	private static final long serialVersionUID = -861320487250584480L;
-	
 	public View view;
 	
 	/**

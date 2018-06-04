@@ -1,10 +1,5 @@
 package view;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.awt.Panel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -14,11 +9,10 @@ import contract.*;
 
 /**
  @author Florian FRISCHMANN
- @version 06/04/2018
+ @version 14.06.16
 */
 
-public class View extends JFrame implements IView, KeyListener, LayoutManager{
-	private static final long serialVersionUID = 8052333814724401335L;
+public class View extends JFrame implements IView, KeyListener{
 	
 	private String title;
 	private IController controller;
@@ -66,6 +60,7 @@ public class View extends JFrame implements IView, KeyListener, LayoutManager{
 	}
 
 	/**
+	 (non-Javadoc)
 	 @see java.awt.Frame#setTitle(java.lang.String)
 	 */
 	public void setTitle(String title){
@@ -74,6 +69,7 @@ public class View extends JFrame implements IView, KeyListener, LayoutManager{
 	
 
 	/**
+	 (non-Javadoc)
 	 @see java.awt.Frame#getTitle()
 	 */
 	public String getTitle(){
@@ -81,48 +77,21 @@ public class View extends JFrame implements IView, KeyListener, LayoutManager{
 	}
 	
 	/**
+	 (non-Javadoc)
 	 @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	public void keyTyped(KeyEvent keyEvent){}
 	/**
+	 (non-Javadoc)
 	 @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(KeyEvent keyEvent) {
 		controller.keyEvent(keyEvent.getKeyCode());
 	}
 	/**
+	 (non-Javadoc)
 	 @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
 	 */
 	public void keyReleased(KeyEvent keyEvent) {}
-
-	@Override
-	public void addLayoutComponent(String name, Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void removeLayoutComponent(Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Dimension preferredLayoutSize(Container parent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Dimension minimumLayoutSize(Container parent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void layoutContainer(Container parent) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
