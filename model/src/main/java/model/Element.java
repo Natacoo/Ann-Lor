@@ -6,7 +6,7 @@ import java.awt.Image;
 import contract.IElement;
 import contract.TypeElement;
 
-public class Element {
+public class Element implements IElement {
 	private Image image; 
 	private int x, y;
 	private boolean permeability;

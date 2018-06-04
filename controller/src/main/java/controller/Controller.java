@@ -388,7 +388,7 @@ public class Controller implements IController{
 			}
 		}else if(model.getState() == StateGame.MENU){
 			if(action == 7){
-				model.playMusic("intro", true);
+				model.playMusic("introduction", true);
 				initPathFinder();
 				try {
 					Thread.sleep(4000);

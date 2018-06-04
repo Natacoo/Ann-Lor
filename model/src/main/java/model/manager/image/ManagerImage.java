@@ -19,11 +19,9 @@ public class ManagerImage {
 	private HashMap<String, String> sound;
 	
 	private BDD bdd;
-	private String path;
 	
-	public ManagerImage(BDD bdd, String path){
+	public ManagerImage(BDD bdd){
 		this.bdd = bdd;
-		this.path = path;
 		initElement();
 		initEntitie();
 		initParticule();
@@ -37,7 +35,7 @@ public class ManagerImage {
 			ResultSet result = bdd.query("{call selectRessourceAll()}");
 			while(result.next()){
 				if(result.getString("type").equals("IMG")){
-					ressources.put(result.getString("name"), this.getClass().getResourceAsStream(path+result.getString("url")));
+					ressources.put(result.getString("name"), this.getClass().getResourceAsStream(result.getString("url")));
 				}else{
 					sound.put(result.getString("name"), result.getString("url"));
 				}
@@ -53,7 +51,7 @@ public class ManagerImage {
 		try {
 			ResultSet result = bdd.query("{call selectParticuleAll()}");
 			while(result.next()){
-				imagesParticules.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+				imagesParticules.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(result.getString("url")))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,7 +66,7 @@ public class ManagerImage {
 		try {
 			ResultSet result = bdd.query("{call selectElementAll()}");
 			while(result.next()){
-				imagesElements.put(result.getInt("id"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+				imagesElements.put(result.getInt("id"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(result.getString("url")))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -84,7 +82,7 @@ public class ManagerImage {
 		try {
 			ResultSet result = bdd.query("{call selectEntitiesAll()}");
 			while(result.next()){
-				imagesEntities.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(path+result.getString("url")))));
+				imagesEntities.put(result.getString("name"), ImageIO.read(new BufferedInputStream(this.getClass().getResourceAsStream(result.getString("url")))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -39,14 +39,14 @@ public class Game extends Observable implements IModel {
 		idActual = 0;
 		maps = new ArrayList<IMap>();
 		bdd = new BDD();
-		managerImage = new ManagerImage(bdd, "./../../../");
+		managerImage = new ManagerImage(bdd);
 		this.State = StateGame.MENU;
 		initMap();
 		Image[] s = {managerImage.getImagesParticules().get("fireball_1"), managerImage.getImagesParticules().get("fireball_2"), managerImage.getImagesParticules().get("fireball_3"), managerImage.getImagesParticules().get("fireball_4"), managerImage.getImagesParticules().get("fireball_5")};
 		spell = s;
-		//try {
-		//	background = ImageIO.read(managerImage.getRessource().get("filtre"));
-		//} catch (IOException e) {}
+		try {
+			background = ImageIO.read(managerImage.getRessource().get("filtre"));
+		} catch (IOException e) {}
 		directionBackground = 7;
 	}
 	
@@ -147,13 +147,13 @@ public class Game extends Observable implements IModel {
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 45));
 		GraphUtil.StringWithBorder(graphics, "LORANN", 550, 70, Color.GREEN);
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-		GraphUtil.StringWithBorder(graphics, "Max score : "+getMap().getScore(), 1000, 220);
+		GraphUtil.StringWithBorder(graphics, "MAX SCORE : "+getMap().getScore(), 1000, 220);
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-		GraphUtil.StringWithBorder(graphics, "[DOWN] previous level", 70, 180);
+		GraphUtil.StringWithBorder(graphics, "[DOWN] Previous Level", 70, 180);
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 35));
 		GraphUtil.StringWithBorder(graphics, "Level : "+getLevel(), 50, 220, Color.PINK);
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 20));
-		GraphUtil.StringWithBorder(graphics, "[UP] next level", 100, 250);
+		GraphUtil.StringWithBorder(graphics, "[UP] Next Level", 100, 250);
 		graphics.setFont(new Font(Font.MONOSPACED, Font.BOLD, 35));
 		GraphUtil.StringWithBorder(graphics, "[enter] Start", 480, 400, Color.CYAN);
 		GraphUtil.StringWithBorder(graphics, "[escape] Exit", 480, 450, Color.CYAN);
