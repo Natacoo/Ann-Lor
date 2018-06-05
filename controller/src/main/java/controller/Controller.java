@@ -61,7 +61,7 @@ public class Controller implements IController{
 	 */
 	public void update(long ticks){
 		if(model.getState() == StateGame.MAP) {
-			//System.out.println(model.getMap().getParticule());
+			System.out.println(model.getMap().getParticule());
 			try{
 				for(IParticule p : model.getMap().getParticule())
 				{
@@ -112,14 +112,14 @@ public class Controller implements IController{
 				}
 			
 		}else if(model.getState() != StateGame.MAP){
-			mouveBackground();
+			moveBackground();
 		}
 		
 	}
 	/**
 	 * Method move the background
 	 */
-	public void mouveBackground(){
+	public void moveBackground(){
 		switch(model.getDirectionBackground()){
 			case 0:
 				if(model.getCoordinateXBackground() > -640)

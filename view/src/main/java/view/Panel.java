@@ -43,6 +43,7 @@ public class Panel extends JPanel implements Observer{
 			}
 		}
 		
+		
 		switch(view.getModel().getState()){
 			case MENU : 
 					view.getModel().getMenu(g);

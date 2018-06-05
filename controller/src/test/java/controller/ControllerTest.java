@@ -56,8 +56,8 @@ public class ControllerTest {
 	}
 	
 	@Test
-	public final void testMouveBackground() {
-		controller.mouveBackground();
+	public final void testMoveBackground() {
+		controller.moveBackground();
 	}
 	
 	@Test

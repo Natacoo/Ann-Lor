@@ -79,8 +79,7 @@ public class Game extends Observable implements IModel{
 	public void loadMap(int id) {
 		try{
 			Map map = new Map();
-			ResultSet resultMapID = bdd.query("{call getMapID(?)}", id);
-			
+			ResultSet resultMapID = bdd.query("{call getMapID"+id+"()}");
 			while(resultMapID.next()){
 				int x = resultMapID.getInt("x");
 				int y = resultMapID.getInt("y");
@@ -107,7 +106,7 @@ public class Game extends Observable implements IModel{
 				}
 			}
 		
-			ResultSet resultEntitiesID = bdd.query("{call getEntitieID(?)}", id);
+			ResultSet resultEntitiesID = bdd.query("{call getEntitieID"+id+"()}");
 			while(resultEntitiesID.next()){
 				int x = resultEntitiesID.getInt("x");
 				int y = resultEntitiesID.getInt("y");
@@ -121,7 +120,7 @@ public class Game extends Observable implements IModel{
 				} else if(resultEntitiesID.getString("type").equalsIgnoreCase("HERO")){
 					Hero h = new Hero(managerImage.getImagesEntities().get(resultEntitiesID.getString("name")));
 					h.setPosition(x, y);
-					h.setTytpeEntitie(TypeEntitie.HERO);
+					h.setTytpeEntitie(TypeEntitie.HERO); 
 					Image[] i = {managerImage.getImagesEntities().get("lorann_u"), managerImage.getImagesEntities().get("lorann_b"), managerImage.getImagesEntities().get("lorann_l"), managerImage.getImagesEntities().get("lorann_r")};
 					h.setSprite(i);
 					h.setImage(h.getImage());
